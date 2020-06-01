@@ -97,7 +97,7 @@ rmw_partial_dependencies_worker <- function(model, df, variable, n_cores,
   )
   
   # Alter names and add variable
-  df_predict <- df_predict %>% 
+  df_predict <- data.frame(df_predict) %>% 
     purrr::set_names(c("value", "partial_dependency")) %>% 
     mutate(variable = !!variable) %>% 
     select(variable, 
